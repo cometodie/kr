@@ -1,0 +1,11 @@
+movy_events:
+    resource: "@MOVYKrBundle/Resources/config/routing.yml"
+    prefix:   /
+
+# app:
+#     resource: '@MOVYEventsBundle/Controller/'
+#     type: annotation  
+
+# movy_events_homepage:
+#     path:     /
+#     defaults: { _controller: MOVYEventsBundle:Default:index }

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Bid</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ bid.id }}</td>
+            </tr>
+            <tr>
+                <th>Text</th>
+                <td>{{ bid.text }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ bid.category }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ bid.date.format('d-m-y') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('bid_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('bid_edit', { 'id': bid.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
