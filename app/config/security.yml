@@ -2,14 +2,14 @@
 # http://symfony.com/doc/current/security.html
 security:
     encoders:
-        Blogger\BlogBundle\Entity\User:
+        MOVY\KrBundle\Entity\User:
             algorithm: sha512
             encode-as-base64: true
             iterations: 10
 
     providers:
         main:
-            entity: { class: BloggerBlogBundle:User, property: username }
+            entity: { class: MOVYKrBundle:User, property: username }
 
     firewalls:
         main:
