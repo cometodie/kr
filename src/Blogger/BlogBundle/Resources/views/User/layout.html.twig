@@ -1,0 +1,16 @@
+{% extends 'BloggerBlogBundle::layout.html.twig' %}
+{% block stylesheets %}
+    <link href="{{ asset('css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('css/font-awesome.css') }}" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/css.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/user.css') }}">
+{% endblock %}
+{% block active_user_panel %} class="activate" {% endblock %}
+
+
+{% block script %}
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+{% endblock %}

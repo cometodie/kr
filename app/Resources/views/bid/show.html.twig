@@ -19,19 +19,21 @@
             </tr>
             <tr>
                 <th>Date</th>
-                <td>{{ bid.date.format('d-m-y') }}</td>
+                <td>{{ bid.date.format('y-d-m') }}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('bid_index') }}">Back to the list</a>
+            <a class="bblack" href="{{ path('bid_index') }}">Back to the list</a>
         </li>
-        <li>
-            <a href="{{ path('bid_edit', { 'id': bid.id }) }}">Edit</a>
-        </li>
-        <li>
+        {% if is_granted('ROLE_ADMIN') %}
+            <li>
+                <a class="bblack" href="{{ path('bid_edit', { 'id': bid.id }) }}">Edit</a>
+            </li>
+            <li>
+        {% endif %}
             {{ form_start(delete_form) }}
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}

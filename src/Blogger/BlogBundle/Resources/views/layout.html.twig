@@ -1,0 +1,59 @@
+{% extends '::base.html.twig' %}
+
+{% block navigation %}
+    <nav>
+        <a{% block active_home %} {% endblock %} href="{{ path('BloggerBlogBundle_homepage') }}"><span>Главная</span></a>
+        <a{% block active_about %} {% endblock %} href="{{ path('BloggerBlogBundle_about') }}"><span>О сайте</span></a>
+        <a{% block active_gallary %} {% endblock %} href="{{ path('BloggerBlogBundle_gallary') }}"><span>Галерея</span></a>
+        <a{% block active_contact %} {% endblock %} href="{{ path('BloggerBlogBundle_contact') }}"><span>Контакты</span></a>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <a{% block active_user_panel %} {% endblock %}
+            {% if is_granted('ROLE_ADMIN') %}
+                href="{{ path('admin_home', {"username": app.user.username}) }}"><span>Админка</span></a>
+            {% else %}
+                href="{{ path('buyer_home', {"username": app.user.username}) }}"><span>Профиль</span></a>
+            {% endif %}
+        {% endif %}
+        <a{% block active_auth %} {% endblock %}
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            href="{{ path('_security_logout') }}"><span>Выход</span></a>
+        {% else %}
+            href="{{ path('_security_login') }}"><span>Вход</span></a>
+        {% endif %}
+    </nav>
+{% endblock %}
+{% block top %}
+    <div id="bufBlock"></div>
+{% endblock %}
+
+{% block footer %}
+    <div class="center">
+        <div id="footer_wrap">
+            <div class="footer_elem">
+                <div class="footer_header">
+                    <span>О нас</span>
+                </div>
+                <div class="footer_content">
+                    <p>Сеть книжных магазинов "Велес" имеет свои отделения в разных городах Беларуси. В каждом отделении вашего города можно найти самую актуальную литературу, а также фирменных товаров.</p>
+                    <img src="{{ asset('img/logo2.svg') }}">
+                </div>
+            </div>
+            <div class="footer_elem">
+                <div class="footer_header">
+                    <span>Контактная информация</span>
+                </div>
+                <div class="footer_content">
+                    <p>Основное отделение находится в городе Витебск. По всем вопросам также можно обращаться в отделения вашего города</p>
+                    <div class="line_content">
+                        <p class="icon-office" title="Город"> Витебск</p><br>
+                        <p class="icon-home2" title="Адрес"> Пр-т Фрунзе 29, 212</p><br>
+                        <p class="icon-whatsapp" title="Телефон"> 576-245-2478</p><br>
+                        <p class="icon-file-text" title="Факс"> 786-277-7999</p><br>
+                        <p class="icon-mail2" title="Email"> blabook@yandex.ru</p><br>
+                        <p class="icon-wordpress" title="Сайт"> blabook.by</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

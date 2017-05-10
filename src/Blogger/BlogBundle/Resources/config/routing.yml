@@ -1,0 +1,53 @@
+_security_login:
+    path:  /login
+    defaults: { _controller: "BloggerBlogBundle:Security:login" }
+
+_security_check:
+    path:  /login_check
+
+_security_logout:
+    path:  /logout
+
+user_reg:
+    path:  /reg
+    defaults: { _controller: "BloggerBlogBundle:Security:reg" }
+    requirements:
+           methods:  POST
+
+admin_home:
+    path:  /userpanel/
+    defaults: { _controller: "BloggerBlogBundle:Admin:index" }
+    requirements:
+           methods:  GET
+
+BloggerBlogBundle_homepage:
+    path:     /
+    defaults: { _controller: "BloggerBlogBundle:Page:index" }
+    requirements:
+         methods:  GET
+
+bid_index:
+    path:     /userpanel/bid
+    defaults: { _controller: "BloggerBlogBundle:bid:index" }
+    methods:  GET
+
+bid_show:
+    path:     /userpanel/{id}/show
+    defaults: { _controller: "BloggerBlogBundle:bid:show" }
+    methods:  GET
+
+bid_new:
+    path:     /userpanel/new
+    defaults: { _controller: "BloggerBlogBundle:bid:new" }
+    methods:  [GET, POST]
+
+bid_edit:
+    path:     /userpanel/{id}/edit
+    defaults: { _controller: "BloggerBlogBundle:bid:edit" }
+    methods:  [GET, POST]
+
+bid_delete:
+    path:     /userpanel/{id}/delete
+    defaults: { _controller: "BloggerBlogBundle:bid:delete" }
+    methods:  DELETE
+

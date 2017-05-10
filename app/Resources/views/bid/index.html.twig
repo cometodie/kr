@@ -16,18 +16,20 @@
         <tbody>
         {% for bid in bids %}
             <tr>
-                <td><a class="bblack" href="{{ path('bid_show', { 'id': bid.id }) }}">{{ bid.id }}</a></td>
+                <td><a href="{{ path('bid_show', { 'id': bid.id }) }}">{{ bid.id }}</a></td>
                 <td>{{ bid.text }}</td>
                 <td>{{ bid.category }}</td>
-                <td>{{ bid.date.format('d-m-y') }}</td>
+                <td>{{ bid.date.format('y-d-m') }}</td>
                 <td>
                     <ul>
                         <li>
                             <a class="bblack" href="{{ path('bid_show', { 'id': bid.id }) }}">show</a>
                         </li>
-                        {#<li>
-                            <a class="bblack" href="{{ path('bid_edit', { 'id': bid.id }) }}">edit</a>
-                        </li>#}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li>
+                                <a class="bblack" href="{{ path('bid_edit', { 'id': bid.id }) }}">edit</a>
+                            </li>
+                        {% endif %}
                     </ul>
                 </td>
             </tr>

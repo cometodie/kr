@@ -1,9 +1,0 @@
-movy_kr_bid:
-    resource: "@MOVYKrBundle/Resources/config/routing/bid.yml"
-    prefix:   /bid
-
-movy_events_homepage:
-    path:     /
-    defaults: { _controller: MOVYKrBundle:bid:new }
-    requirements:
-         methods: GET

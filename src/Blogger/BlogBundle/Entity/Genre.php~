@@ -1,0 +1,92 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Andrey
+ * Date: 07.05.2017
+ * Time: 9:47
+ */
+
+namespace Blogger\BlogBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass="Blogger\BlogBundle\Entity\Repository\GenreRepository")
+ * @ORM\HasLifecycleCallbacks
+ * @ORM\Table(name="genre")
+ */
+class Genre{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $title;
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $en_title;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Genre
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set enTitle
+     *
+     * @param string $enTitle
+     *
+     * @return Genre
+     */
+    public function setEnTitle($enTitle)
+    {
+        $this->en_title = $enTitle;
+
+        return $this;
+    }
+
+    /**
+     * Get enTitle
+     *
+     * @return string
+     */
+    public function getEnTitle()
+    {
+        return $this->en_title;
+    }
+}

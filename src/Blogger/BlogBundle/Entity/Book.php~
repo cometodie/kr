@@ -1,0 +1,303 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Andrey
+ * Date: 07.05.2017
+ * Time: 8:54
+ */
+
+namespace Blogger\BlogBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass="Blogger\BlogBundle\Entity\Repository\BookRepository")
+ * @ORM\HasLifecycleCallbacks
+ * @ORM\Table(name="book")
+ */
+class Book{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $title;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $image;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $count_list;
+    /**
+     * @ORM\Column(type="integer", length=4)
+     */
+    protected $year;
+    /**
+     * @ORM\Column(type="float")
+     */
+    protected $cost;
+    /**
+     * @ORM\ManyToMany(targetEntity="Author")
+     * @ORM\JoinTable(name="book_author",
+     *     joinColumns={@ORM\JoinColumn(name="author_id", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="book_id", referencedColumnName="id")}
+     * )
+     *
+     * @var ArrayCollection $authors
+     */
+    protected $authors;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Genre")
+     * @ORM\JoinTable(name="book_genre",
+     *     joinColumns={@ORM\JoinColumn(name="genre_id", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="book_id", referencedColumnName="id")}
+     * )
+     *
+     * @var ArrayCollection $genres
+     */
+    protected $genres;
+
+    public function __construct(){
+        $this->authors = new ArrayCollection();
+        $this->genres = new ArrayCollection();
+    }
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $description;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Book
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set countList
+     *
+     * @param integer $countList
+     *
+     * @return Book
+     */
+    public function setCountList($countList)
+    {
+        $this->count_list = $countList;
+
+        return $this;
+    }
+
+    /**
+     * Get countList
+     *
+     * @return integer
+     */
+    public function getCountList()
+    {
+        return $this->count_list;
+    }
+
+    /**
+     * Set year
+     *
+     * @param integer $year
+     *
+     * @return Book
+     */
+    public function setYear($year)
+    {
+        $this->year = $year;
+
+        return $this;
+    }
+
+    /**
+     * Get year
+     *
+     * @return integer
+     */
+    public function getYear()
+    {
+        return $this->year;
+    }
+
+    /**
+     * Set cost
+     *
+     * @param float $cost
+     *
+     * @return Book
+     */
+    public function setCost($cost)
+    {
+        $this->cost = $cost;
+
+        return $this;
+    }
+
+    /**
+     * Get cost
+     *
+     * @return float
+     */
+    public function getCost()
+    {
+        return $this->cost;
+    }
+
+
+    /**
+     * Add author
+     *
+     * @param \Blogger\BlogBundle\Entity\Author $author
+     *
+     * @return Book
+     */
+    public function addAuthor(\Blogger\BlogBundle\Entity\Author $author)
+    {
+        $this->authors[] = $author;
+
+        return $this;
+    }
+
+    /**
+     * Remove author
+     *
+     * @param \Blogger\BlogBundle\Entity\Author $author
+     */
+    public function removeAuthor(\Blogger\BlogBundle\Entity\Author $author)
+    {
+        $this->authors->removeElement($author);
+    }
+
+    /**
+     * Get authors
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAuthors()
+    {
+        return $this->authors;
+    }
+
+    /**
+     * Add genre
+     *
+     * @param \Blogger\BlogBundle\Entity\Genre $genre
+     *
+     * @return Book
+     */
+    public function addGenre(\Blogger\BlogBundle\Entity\Genre $genre)
+    {
+        $this->genres[] = $genre;
+
+        return $this;
+    }
+
+    /**
+     * Remove genre
+     *
+     * @param \Blogger\BlogBundle\Entity\Genre $genre
+     */
+    public function removeGenre(\Blogger\BlogBundle\Entity\Genre $genre)
+    {
+        $this->genres->removeElement($genre);
+    }
+
+    /**
+     * Get genres
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getGenres()
+    {
+        return $this->genres;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Book
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return Book
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+}
