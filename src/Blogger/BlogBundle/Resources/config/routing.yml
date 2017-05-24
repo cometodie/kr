@@ -50,6 +50,12 @@ movy_events_gallery:
     requirements:
          methods:  GET
 
+movy_send:
+    path:     /send
+    defaults: { _controller: "BloggerBlogBundle:Page:send" }
+    requirements:
+         methods:  GET
+
 BloggerBlogBundle_homepage:
     path:     /
     defaults: { _controller: "BloggerBlogBundle:Event:index" }

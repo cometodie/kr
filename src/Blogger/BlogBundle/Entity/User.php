@@ -58,14 +58,9 @@ class User implements UserInterface{
      */
     protected $userRoles;
 
-    /**
-     * @ORM\OneToMany(targetEntity="bid", mappedBy="user")
-     */
-    protected $bids;
 
     public function __construct(){
         $this->userRoles = new ArrayCollection();
-        $this->bids = new ArrayCollection();
     }
 
     /**

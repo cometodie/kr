@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <a class="container margin_top" style="">
+        <h1 style="color:#39c2d7;">Вы купили билет на мероприятие <b><i>{{ event.name }}</i></b></h1>
+        <div class="medium-4 medium-offset-4">
+            <img src="{{ asset('img/logo.png') }}">
+        </div>
+        <div class="row" style="text-align: center;">
+            <a class="color_black a_about" href="{{ path('BloggerBlogBundle_homepage') }}" style="font-size: 32px; text-align: center;">Вернуться на главную страницу!</a>
+        </div>
+    </div>
+
+{% endblock %}

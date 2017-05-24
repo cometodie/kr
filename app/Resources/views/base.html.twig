@@ -38,11 +38,14 @@
                           <ul class="nav navbar-nav">
                               <li class="active"><a href="{{ path('BloggerBlogBundle_homepage')}}">Главная</a></li>
                               <li><a href="{{ path('movy_events_gallery')}}">Галлерея</a></li>
-                              <li><a href="{{ path('movy_events_gallery')}}">Контакты</a></li>
+                              <li><a href="{{ path('movy_events_contact')}}">Контакты</a></li>
                               {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                                   <li><a href="{{ path('_security_logout') }}"><span>Выход</span></a></li>
                               {% else %}
                                   <li><a href="{{ path('movy_events_login') }}">Войти</a></li>
+                              {% endif %}
+                              {% if is_granted('ROLE_ADMIN') %}
+                                <li><a href="{{ path('admin_home') }}"><span>Администрирование</span></a></li>
                               {% endif %}
                           </ul>
                       </div>
