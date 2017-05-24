@@ -1,8 +1,814 @@
 /* This is needed for some mobile phones to display the Google Icon font properly */
-.btn-primary{
-  background-color: #337ab7;
-  border-color: #2e6da4;
+.material-icons {
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'liga'; }
+
+.material-tooltip {
+  padding: 10px 8px;
+  font-size: 1rem;
+  z-index: 2000;
+  background-color: transparent;
+  border-radius: 2px;
+  color: #fff;
+  min-height: 36px;
+  line-height: 120%;
+  opacity: 0;
+  display: none;
+  position: absolute;
+  text-align: center;
+  max-width: calc(100% - 4px);
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  pointer-events: none; }
+
+.backdrop {
+  position: absolute;
+  opacity: 0;
+  display: none;
+  height: 7px;
+  width: 14px;
+  border-radius: 0 0 50% 50%;
+  background-color: #323232;
+  z-index: -1;
+  -ms-transform-origin: 50% 0%;
+      transform-origin: 50% 0%;
+  transform: translate3d(0, 0, 0); }
+
+/*!
+ * Waves v0.6.0
+ * http://fian.my.id/Waves
+ *
+ * Copyright 2014 Alfiana E. Sibuea and other contributors
+ * Released under the MIT license
+ * https://github.com/fians/Waves/blob/master/LICENSE
+ */
+.waves-effect {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  vertical-align: middle;
+  z-index: 1;
+  will-change: opacity, transform;
+  transition: .3s ease-out; }
+  .waves-effect .waves-ripple {
+    position: absolute;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.2);
+    transition: all 0.7s ease-out;
+    transition-property: transform, opacity;
+    -ms-transform: scale(0);
+        transform: scale(0);
+    pointer-events: none; }
+  .waves-effect.waves-light .waves-ripple {
+    background-color: rgba(255, 255, 255, 0.45); }
+  .waves-effect.waves-red .waves-ripple {
+    background-color: rgba(244, 67, 54, 0.7); }
+  .waves-effect.waves-yellow .waves-ripple {
+    background-color: rgba(255, 235, 59, 0.7); }
+  .waves-effect.waves-orange .waves-ripple {
+    background-color: rgba(255, 152, 0, 0.7); }
+  .waves-effect.waves-purple .waves-ripple {
+    background-color: rgba(156, 39, 176, 0.7); }
+  .waves-effect.waves-green .waves-ripple {
+    background-color: rgba(76, 175, 80, 0.7); }
+  .waves-effect.waves-teal .waves-ripple {
+    background-color: rgba(0, 150, 136, 0.7); }
+  .waves-effect input[type="button"], .waves-effect input[type="reset"], .waves-effect input[type="submit"] {
+    border: 0;
+    font-style: normal;
+    font-size: inherit;
+    text-transform: inherit;
+    background: none; }
+  .waves-effect img {
+    position: relative;
+    z-index: -1; }
+
+.waves-notransition {
+  transition: none !important; }
+
+.waves-circle {
+  transform: translateZ(0);
+  -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%); }
+
+.waves-input-wrapper {
+  border-radius: 0.2em;
+  vertical-align: bottom; }
+  .waves-input-wrapper .waves-button-input {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1; }
+
+.waves-circle {
+  text-align: center;
+  width: 2.5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  border-radius: 50%;
+  -webkit-mask-image: none; }
+
+.waves-block {
+  display: block; }
+
+/* Firefox Bug: link not triggered */
+.waves-effect .waves-ripple {
+  z-index: -1; }
+
+/* ==========================================================================
+   $BASE-PICKER
+   ========================================================================== */
+/**
+ * Note: the root picker element should *NOT* be styled more than what's here.
+ */
+.picker {
+  font-size: 16px;
+  text-align: left;
+  line-height: 1.2;
+  color: #000000;
+  position: absolute;
+  z-index: 10000;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+/**
+ * The picker input element.
+ */
+.picker__input {
+  cursor: default; }
+
+/**
+ * When the picker is opened, the input element is "activated".
+ */
+.picker__input.picker__input--active {
+  border-color: #0089ec; }
+
+/**
+ * The holder is the only "scrollable" top-level container element.
+ */
+.picker__holder {
+  width: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; }
+
+/*!
+ * Default mobile-first, responsive styling for pickadate.js
+ * Demo: http://amsul.github.io/pickadate.js
+ */
+/**
+ * Note: the root picker element should *NOT* be styled more than what's here.
+ */
+/**
+ * Make the holder and frame fullscreen.
+ */
+.picker__holder,
+.picker__frame {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 100%; }
+
+/**
+ * The holder should overlay the entire screen.
+ */
+.picker__holder {
+  position: fixed;
+  transition: background 0.15s ease-out, top 0s 0.15s;
+  -webkit-backface-visibility: hidden; }
+
+/**
+ * The frame that bounds the box contents of the picker.
+ */
+.picker__frame {
+  position: absolute;
+  margin: 0 auto;
+  min-width: 256px;
+  width: 300px;
+  max-height: 350px;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+  opacity: 0;
+  transition: all 0.15s ease-out; }
+
+@media (min-height: 28.875em) {
+  .picker__frame {
+    overflow: visible;
+    top: auto;
+    bottom: -100%;
+    max-height: 80%; } }
+
+@media (min-height: 40.125em) {
+  .picker__frame {
+    margin-bottom: 7.5%; } }
+
+/**
+ * The wrapper sets the stage to vertically align the box contents.
+ */
+.picker__wrap {
+  display: table;
+  width: 100%;
+  height: 100%; }
+
+@media (min-height: 28.875em) {
+  .picker__wrap {
+    display: block; } }
+
+/**
+ * The box contains all the picker contents.
+ */
+.picker__box {
+  background: #ffffff;
+  display: table-cell;
+  vertical-align: middle; }
+
+@media (min-height: 28.875em) {
+  .picker__box {
+    display: block;
+    border: 1px solid #777777;
+    border-top-color: #898989;
+    border-bottom-width: 0;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 12px 36px 16px rgba(0, 0, 0, 0.24); } }
+
+/**
+ * When the picker opens...
+ */
+.picker--opened .picker__holder {
+  top: 0;
+  background: transparent;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#1E000000,endColorstr=#1E000000)";
+  zoom: 1;
+  background: rgba(0, 0, 0, 0.32);
+  transition: background 0.15s ease-out; }
+
+.picker--opened .picker__frame {
+  top: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100);
+  -moz-opacity: 1;
+  opacity: 1; }
+
+@media (min-height: 35.875em) {
+  .picker--opened .picker__frame {
+    top: 10%;
+    bottom: auto; } }
+
+/**
+ * For `large` screens, transform into an inline picker.
+ */
+/* ==========================================================================
+   CUSTOM MATERIALIZE STYLES
+   ========================================================================== */
+.picker__input.picker__input--active {
+  border-color: color("blue", "lighten-5"); }
+
+.picker__frame {
+  margin: 0 auto;
+  max-width: 325px; }
+
+@media (min-height: 38.875em) {
+  .picker--opened .picker__frame {
+    top: 10%;
+    bottom: auto; } }
+
+/* ==========================================================================
+   $BASE-TIME-PICKER
+   ========================================================================== */
+/**
+ * The list of times.
+ */
+.picker__list {
+  list-style: none;
+  padding: 0.75em 0 4.2em;
+  margin: 0; }
+
+/**
+ * The times on the clock.
+ */
+.picker__list-item {
+  border-bottom: 1px solid #dddddd;
+  border-top: 1px solid #dddddd;
+  margin-bottom: -1px;
+  position: relative;
+  background: #ffffff;
+  padding: .75em 1.25em; }
+
+@media (min-height: 46.75em) {
+  .picker__list-item {
+    padding: .5em 1em; } }
+
+/* Hovered time */
+.picker__list-item:hover {
+  cursor: pointer;
+  color: #000000;
+  background: #b1dcfb;
+  border-color: #0089ec;
+  z-index: 10; }
+
+/* Highlighted and hovered/focused time */
+.picker__list-item--highlighted {
+  border-color: #0089ec;
+  z-index: 10; }
+
+.picker__list-item--highlighted:hover,
+.picker--focused .picker__list-item--highlighted {
+  cursor: pointer;
+  color: #000000;
+  background: #b1dcfb; }
+
+/* Selected and hovered/focused time */
+.picker__list-item--selected,
+.picker__list-item--selected:hover,
+.picker--focused .picker__list-item--selected {
+  background: #0089ec;
+  color: #ffffff;
+  z-index: 10; }
+
+/* Disabled time */
+.picker__list-item--disabled,
+.picker__list-item--disabled:hover,
+.picker--focused .picker__list-item--disabled {
+  background: #f5f5f5;
+  border-color: #f5f5f5;
+  color: #dddddd;
+  cursor: default;
+  border-color: #dddddd;
+  z-index: auto; }
+
+/**
+ * The clear button
+ */
+.picker--time .picker__button--clear {
+  display: block;
+  width: 80%;
+  margin: 1em auto 0;
+  padding: 1em 1.25em;
+  background: none;
+  border: 0;
+  font-weight: 500;
+  font-size: .67em;
+  text-align: center;
+  text-transform: uppercase;
+  color: #666; }
+
+.picker--time .picker__button--clear:hover,
+.picker--time .picker__button--clear:focus {
+  color: #000000;
+  background: #b1dcfb;
+  background: #ee2200;
+  border-color: #ee2200;
+  cursor: pointer;
+  color: #ffffff;
+  outline: none; }
+
+.picker--time .picker__button--clear:before {
+  top: -0.25em;
+  color: #666;
+  font-size: 1.25em;
+  font-weight: bold; }
+
+.picker--time .picker__button--clear:hover:before,
+.picker--time .picker__button--clear:focus:before {
+  color: #ffffff; }
+
+/* ==========================================================================
+   $DEFAULT-TIME-PICKER
+   ========================================================================== */
+/**
+ * The frame the bounds the time picker.
+ */
+.picker--time .picker__frame {
+  min-width: 256px;
+  max-width: 320px; }
+
+/**
+ * The picker box.
+ */
+.picker--time .picker__box {
+  font-size: 1em;
+  background: #f2f2f2;
+  padding: 0; }
+
+@media (min-height: 40.125em) {
+  .picker--time .picker__box {
+    margin-bottom: 5em; } }
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+body {
+  padding-bottom: 40px;
+  color: #5a5a5a; }
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20; }
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0; }
+
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px; }
+
+.navbar-wrapper .navbar .container {
+  width: auto; }
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+/* Carousel base class */
+.carousel {
+  height: 500px;
+  margin-bottom: 60px; }
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10; }
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 500px;
+  background-color: #777; }
+
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px; }
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center; }
+
+.marketing h2 {
+  font-weight: normal; }
+
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px; }
+
+/* Featurettes
+------------------------- */
+.featurette-divider {
+  margin: 80px 0;
+  /* Space out the Bootstrap <hr> more */ }
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px; }
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+.carousel-caption p {
+  margin-bottom: 30px; }
+
+@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px; }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px; }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0; }
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px; }
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 50px;
+    font-size: 21px;
+    line-height: 1.4; }
+  .featurette-heading {
+    font-size: 50px; } }
+
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px; } }
+
+.margin0 {
+  margin: 0 !important; }
+
+.padding0 {
+  padding: 0 !important; }
+
+.margin_top {
+  margin-top: 50px; }
+
+.my_container {
+  margin-right: auto;
+  margin-left: auto; }
+  @media (min-width: 768px) {
+    .my_container {
+      width: 750px; } }
+  @media (min-width: 992px) {
+    .my_container {
+      width: 970px; } }
+
+.overlay_carusel {
+  background: #000;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: .6;
+  position: absolute; }
+
+.carusel_img1 {
+  background-image: url("../img/carusel_1.png");
+  background-size: cover;
+  height:100%;}
+.carusel_img2{
+  background-image: url("../img/carusel_2.png");
+  background-size: cover;
+  height:100%
 }
-.bblack{
+.carusel_img3{
+  background-image: url("../img/carusel_3.png");
+  background-size: cover;
+  height:100%
+}
+.concerts_block {
+  margin-top: 8%; }
+  @media screen and (min-width: 1440px) {
+    .concerts_block {
+      margin-top: 4%; } }
+  .concerts_block h1 {
+    text-align: center;
+    margin: 0;
+    font-family: 'Baloo', cursive;;
+    font-weight: bold; }
+
+.item_1 {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column wrap;
+      flex-flow: column wrap;
+  -ms-flex-align: center;
+      align-items: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
+
+.concert_item {
+  position: relative;
+  margin-top: 6%;
+  padding: 0 2%; }
+  .concert_item .item_text {
+    padding: 30px 15px 15px 15px;
+    min-height: 400px;
+    text-align: justify;}
+
+.icon-bar {
+  background: #fff; }
+
+.news {
+  margin-top: 8%;
+  text-align: center; }
+  @media screen and (min-width: 1440px) {
+    .news {
+      margin-top: 4%; } }
+  .news .flex_column {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap; }
+  .news .flex_row {
+    -ms-flex: 1;
+        flex: 1;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center; }
+  .news .date {
+    -ms-flex: 1;
+        flex: 1;
+    padding: 0 2%;
+    color: #2a8eae; }
+  .news .vertical_line {
+    border-left: 4px solid #2a8eae;
+    height: 80px; }
+  .news .news_text {
+    -ms-flex: 3;
+        flex: 3;
+    text-align: left;
+    padding: 5% 5%; }
+    .news .news_text .news_title {
+      font-size: 18px;
+      margin-bottom: .2rem; }
+      @media screen and (max-width: 520px) {
+        .news .news_text .news_title {
+          font-size: 16px; } }
+    .news .news_text .news_cont {
+      font-size: 14px;
+      margin-bottom: 0; }
+      @media screen and (max-width: 520px) {
+        .news .news_text .news_cont {
+          font-size: 12px; } }
+
+.footer {
+  /*margin-top: 8%;*/
+  background: #435c72;
+  /*position: absolute;*/
+  width: 100%;
+  /*bottom:0;*/
+  color: #fff; }
+  .footer p {
+    color: #afafaf;
+    margin: 0; }
+  .footer .padding {
+    padding: 5% 0 5% 0;
+    text-align: center; }
+    @media screen and (min-width: 640px) {
+      .footer .padding {
+        padding: 20% 0 20% 20%;
+        text-align: left; } }
+  .footer .contact_column {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    -ms-flex-align: center;
+        align-items: center; }
+    @media screen and (min-width: 640px) {
+      .footer .contact_column {
+        -ms-flex-align: start;
+            align-items: flex-start; } }
+    .footer .contact_column .contact_text {
+      -ms-flex: 1;
+          flex: 1; }
+  .footer .phone_img img {
+    min-width: 40px !important;
+    max-width: 40px !important;
+    min-height: 40px !important; }
+  .footer .phone {
+    -ms-flex: 1;
+        flex: 1;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center; }
+  .footer .number {
+    padding: 10% 5%; }
+
+.row {
+  max-width: none !important; }
+
+.back_header {
+  display: block;
+  background: #435c72; }
+
+.main {
+  text-align: center; }
+  .main .ticket_area {
+    padding: 5%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
+    .main .ticket_area h3 {
+      font-size: 22px; }
+    .main .ticket_area p {
+      font-size: 18px; }
+    @media screen and (min-width: 1024px) {
+      .main .ticket_area p {
+        font-size: 20px; } }
+  .main .flex_row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center; }
+  .main .spinbox {
+    margin-left: 2%; }
+  .main .text {
+    margin-top: 4%;
+    text-align: left;
+    }
+
+.medium-6 {
+  margin-top: 15px; }
+
+body {
+  background: #f1f1f1; }
+
+h1 {
+  text-align: center;
+  font-family: 'Baloo', cursive;
+  font-weight: bold; }
+
+.relative {
+  position: relative; }
+
+.contact_info {
+  text-align: center; }
+  .contact_info .text {
+    text-align: left; }
+  .contact_info .students {
+    margin-top: 8px; }
+  .contact_info img {
+    max-width: 100% !important;
+    max-height: 300px !important;
+    display: block;
+    margin: auto; }
+
+.location p {
+  background: #fff; }
+
+.margin_2proc {
+  margin-top: 2%;
+  margin-bottom: 2%; }
+
+.margin_4proc {
+  margin-top: 4%; }
+
+iframe {
+  min-width: 100%;
+  height: auto; }
+.color_black{
   color: #000;
+}
+
+.footer_button{
+  text-align:center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right:0;
+}
+.text_left{
+  text-align: left;
+  
+}
+.navbar-brand:hover, .navbar-brand:focus{
+  color:#fff;
+}
+.overflow_text{
+  height: 150px;
+  overflow: hidden;
+}
+.large{
+  position:relative;
+}
+img{
+    border-radius: 4px;
+    max-width: 100%;
+    height:auto;
+    border: 0;
+    vertical-align: middle; 
+}
+.border-bottom{
+  border-bottom: thin solid #000;
+}
+.text_description{
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+}
+.gallery_item{
+  padding: 15px;
+}
+.for_admin{
+  margin-top:100px;
+  padding:25px;
+  background: #eceff1;
+}
+.for_admin_panel{
+  /*padding 25px 0;*/
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content:center;
+  align-items: flex-start;
 }

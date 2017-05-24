@@ -2,18 +2,23 @@
 
 {% block body %}
 
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <p><a class="bblack" href="{{ path('bid_index') }}"><span>Просмотреть заявки</span></a></p>
-        <p><a class="bblack" href="{{ path('bid_new') }}"><span>Добавить заявку</span></a></p>
-        <p><a class="bblack" href="{{ path('_security_logout') }}"><span>Выход</span></a></p>
-    {% else %}
-        <div class="container">
-            <h3>Авторизация</h3>
-            {% embed "@BloggerBlog/Security/form_auth.html.twig" %}{% endembed %}
-            <h3>Регистрация</h3>
-            {{ render(controller("BloggerBlogBundle:Security:reg")) }}
-        </div>
+    {#{% if is_granted('IS_AUTHENTICATED_FULLY') %}#}
+        {#<p><a class="bblack" href="{{ path('bid_index') }}"><span>Просмотреть заявки</span></a></p>#}
+        {#<p><a class="bblack" href="{{ path('bid_new') }}"><span>Добавить заявку</span></a></p>#}
+        {#<p><a class="bblack" href="{{ path('_security_logout') }}"><span>Выход</span></a></p>#}
+    {#{% else %}#}
+        {#<div class="container">#}
+            {#<h3>Авторизация</h3>#}
+            {#{% embed "@BloggerBlog/Security/form_auth.html.twig" %}{% endembed %}#}
+            {#<h3>Регистрация</h3>#}
+            {#{{ render(controller("BloggerBlogBundle:Security:reg")) }}#}
+        {#</div>#}
 
-    {% endif %}
-
+    {#{% endif %}#}
+    <div class="container">
+        <h3>Авторизация</h3>
+        {% embed "@BloggerBlog/Security/form_auth.html.twig" %}{% endembed %}
+        <h3>Регистрация</h3>
+        {{ render(controller("BloggerBlogBundle:Security:reg")) }}
+    </div>
 {% endblock %}

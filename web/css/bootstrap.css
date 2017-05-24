@@ -64,7 +64,7 @@ h1 {
   font-size: 2em;
 }
 mark {
-  color: #000;
+  /*color: #000;*/
   background: #ff0;
 }
 small {
@@ -1097,7 +1097,7 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #fff;
+  /*color: #fff;*/
   text-decoration: none;
 }
 a:hover,
@@ -3126,8 +3126,8 @@ fieldset[disabled] .btn-default.focus {
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #435c72;
-  border-color: #435c72;
+  background-color: #435c80;
+  border-color: #435c80;
   transition: .3s;
   transition-timing-function: linear;
 }
@@ -3457,6 +3457,7 @@ fieldset[disabled] .btn-link:focus {
 .btn-block {
   display: block;
   width: 100%;
+  background: #435c72;
 }
 .btn-block + .btn-block {
   margin-top: 5px;

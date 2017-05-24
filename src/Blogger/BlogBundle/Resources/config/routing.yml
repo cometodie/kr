@@ -14,40 +14,45 @@ user_reg:
     requirements:
            methods:  POST
 
+#movy_events_homepage:
+#    path:     /
+#    defaults: { _controller: "BloggerBlogBundle:Default:index"}
+#    requirements:
+#         methods: GET
+
+ticket_buy:
+    path:  /event
+    defaults: { _controller: "BloggerBlogBundle:Event:buy" }
+    requirements:
+           methods:  POST
+
 admin_home:
     path:  /userpanel/
     defaults: { _controller: "BloggerBlogBundle:Admin:index" }
     requirements:
            methods:  GET
 
-BloggerBlogBundle_homepage:
-    path:     /
-    defaults: { _controller: "BloggerBlogBundle:Page:index" }
+movy_events_login:
+    path:     /login
+    defaults: { _controller: "BloggerBlogBundle:Page:login" }
     requirements:
          methods:  GET
 
-bid_index:
-    path:     /userpanel/bid
-    defaults: { _controller: "BloggerBlogBundle:bid:index" }
-    methods:  GET
+movy_events_contact:
+    path:     /contact
+    defaults: { _controller: "BloggerBlogBundle:Page:contact" }
+    requirements:
+         methods:  GET
 
-bid_show:
-    path:     /userpanel/{id}/show
-    defaults: { _controller: "BloggerBlogBundle:bid:show" }
-    methods:  GET
+movy_events_gallery:
+    path:     /gallery
+    defaults: { _controller: "BloggerBlogBundle:Page:gallery" }
+    requirements:
+         methods:  GET
 
-bid_new:
-    path:     /userpanel/new
-    defaults: { _controller: "BloggerBlogBundle:bid:new" }
-    methods:  [GET, POST]
-
-bid_edit:
-    path:     /userpanel/{id}/edit
-    defaults: { _controller: "BloggerBlogBundle:bid:edit" }
-    methods:  [GET, POST]
-
-bid_delete:
-    path:     /userpanel/{id}/delete
-    defaults: { _controller: "BloggerBlogBundle:bid:delete" }
-    methods:  DELETE
+BloggerBlogBundle_homepage:
+    path:     /
+    defaults: { _controller: "BloggerBlogBundle:Event:index" }
+    requirements:
+         methods:  GET
 

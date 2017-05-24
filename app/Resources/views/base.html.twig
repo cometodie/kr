@@ -14,16 +14,93 @@
     {% block stylesheets %}
         <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
         <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/foundation.css') }}" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Baloo|Lato" rel="stylesheet">
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     
   </head>
+  <header>
+      <div class="navbar-wrapper margin0 relative">
+          <div class="container-fluid">
+              <div class="back_header">
+                  <nav class="navbar nav-back navbar-static-top my_container">
+                      <div class="navbar-header">
+                          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                              <span class="sr-only">Toggle navigation</span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                          </button>
+                          <a class="navbar-brand" href="/">Мероприятия</a>
+                      </div>
+                      <div id="navbar" class="navbar-collapse collapse">
+                          <ul class="nav navbar-nav">
+                              <li class="active"><a href="{{ path('BloggerBlogBundle_homepage')}}">Главная</a></li>
+                              <li><a href="{{ path('movy_events_gallery')}}">Галлерея</a></li>
+                              <li><a href="{{ path('movy_events_gallery')}}">Контакты</a></li>
+                              {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                  <li><a href="{{ path('_security_logout') }}"><span>Выход</span></a></li>
+                              {% else %}
+                                  <li><a href="{{ path('movy_events_login') }}">Войти</a></li>
+                              {% endif %}
+                          </ul>
+                      </div>
+                  </nav>
+              </div>
+          </div>
+      </div>
+  </header>
   <body>
     {% block body %}{% endblock %}
-
+    <footer>
+        <div class="container-fluid padding0 margin0">
+            <div class="row" style="margin-top: 100px;">
+                <div class="footer">
+                    <div class="container">
+                        <div class="medium-3 columns">
+                            <div class="about_us padding">
+                                <h5>О нас</h5>
+                                <p>Студенты 3 курса
+                                    факультета МФ и ИТ
+                                    ВГУ им. Машерова
+                                </p>
+                            </div>
+                        </div>
+                        <div class="medium-3 medium-pull-2 columns">
+                            <div class="contact">
+                                <div class="contact_column padding">
+                                    <div class="contact_text">
+                                        <h5>Контакты</h5>
+                                    </div>
+                                    <div class="phone">
+                                        <div class="phone_img">
+                                            <img src="{{ asset('img/phone.png') }}">
+                                        </div>
+                                        <div class="number">
+                                            <p>+375295106979</p>
+                                        </div>
+                                    </div>
+                                    <div class="phone">
+                                        <div class="phone_img">
+                                            <img src="{{ asset('img/phone.png') }}">
+                                        </div>
+                                        <div class="number">
+                                            <p>+375295106979</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     {% block javascripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/foundation.min.js') }}"></script>
     {% endblock %}
   </body>
 </html>

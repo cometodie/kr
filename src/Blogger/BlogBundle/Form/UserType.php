@@ -8,14 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class UserType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
-        $builder->add('username')->add('password');
-    }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -34,5 +27,12 @@ class UserType extends AbstractType
         return 'blogger_blogbundle_user';
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder->add('username')->add('password');
+    }
 
 }

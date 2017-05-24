@@ -1,3 +1,19 @@
+blogger_blog_user:
+    resource: "@BloggerBlogBundle/Controller/UserController.php"
+    type:     annotation
+
+blogger_blog_ticket:
+    resource: "@BloggerBlogBundle/Controller/TicketController.php"
+    type:     annotation
+
+blogger_blog_ticket:
+    resource: "@BloggerBlogBundle/Controller/TicketController.php"
+    type:     annotation
+
+blogger_blog_event:
+    resource: "@BloggerBlogBundle/Controller/EventController.php"
+    type:     annotation
+
 blogger_blog:
     resource: "@BloggerBlogBundle/Resources/config/routing.yml"
     prefix:   /

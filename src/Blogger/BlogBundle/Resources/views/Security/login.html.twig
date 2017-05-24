@@ -3,15 +3,16 @@
 {% block body %}
 
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        href="{{ path('_security_logout') }}"><span>Выход</span></a>
-    {% else %}
-        <div class="container">
-            <h3>Авторизация</h3>
+    <a href="{{ path('_security_logout') }}"><span>Выход</span></a>
+{% else %}
+    <div class="container margin_top">
+        <h3>Авторизация</h3>
         {% embed "@BloggerBlog/Security/form_auth.html.twig" %}{% endembed %}
+        <div style="padding:50px 0;"></div>
         <h3>Регистрация</h3>
         {{ render(controller("BloggerBlogBundle:Security:reg")) }}
-        </div>
+    </div>
 
-    {% endif %}
+{% endif %}
 
 {% endblock %}
