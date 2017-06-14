@@ -40,7 +40,15 @@
                               <li><a href="{{ path('movy_events_gallery')}}">Галлерея</a></li>
                               <li><a href="{{ path('movy_events_contact')}}">Контакты</a></li>
                               {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                  <li><a href="{{ path('_security_logout') }}"><span>Выход</span></a></li>
+                                  <div class="btn-group profile">
+                                      <button type="button" class="btn btn-default b_profile">Профиль</button>
+                                      <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
+                                      <ul class="dropdown-menu">
+                                          <li><a href="#">{{ app.user.username }}</a></li>
+                                          <li class="divider"></li>
+                                          <li><a href="{{ path('_security_logout') }}"><span>Выход</span></a></li>
+                                      </ul>
+                                  </div>
                               {% else %}
                                   <li><a href="{{ path('movy_events_login') }}">Войти</a></li>
                               {% endif %}
