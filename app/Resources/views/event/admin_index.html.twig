@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid margin_top">
+    <h1>Списко мероприятий</h1>
+    <table class="table table-bordered">
+        <thead class="thead-inverse">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Date</th>
+            <th>numberOfTickets</th>
+            <th>remainingTickets</th>
+            <th>Действия</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for event in events %}
+            <tr>
+                <td><a class="color_black" href="{{ path('ticket_show', { 'id': event.id }) }}">{{ event.id }}</a></td>
+                <td><b>{{ event.name }}</b></td>
+                <td>{{ event.description }}</td>
+                <td>{{ event.image }}</td>
+                <td>{{ event.date.format('Y-m-d H:i:s') }}</td>
+                <td>{{ event.numberOfTickets }}</td>
+                <td>{{ event.remainingTickets }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <button class="button bwidth"><a href="{{ path('event_show', { 'id': event.id }) }}">Показать</a></button>
+                        </li>
+                        <li>
+                            <button class="button bwidth"><a href="{{ path('event_edit', { 'id': event.id }) }}">Изменить</a></button>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <button class="button success"><a href="{{ path('event_new') }}">Создать мероприятие</a></button>
+        </li>
+    </ul>
+    </div>
+{% endblock %}

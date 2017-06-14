@@ -2,141 +2,18 @@
 {% block title %}Панель Администратора{% endblock %}
 
 {% block body %}
-    <div class="container-fluid margin_top" style="padding-bottom:100px;">
+    <div class="container margin_top" style="padding-bottom:100px;">
         <h2 style="text-align: center">Панель Администратора</h2>
         <div class="row margin_top">
-            <div class="col-md-12">
-                <h1>Users list</h1>
-
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Username</th>
-                        <th>Password</th>
-                        <th>Salt</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for user in users %}
-                        <tr>
-                            <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
-                            <td>{{ user.username }}</td>
-                            <td>{{ user.password }}</td>
-                            <td>{{ user.salt }}</td>
-                            <td>
-                                <ul>
-                                    <li>
-                                        <a class="color_black" href="{{ path('user_show', { 'id': user.id }) }}">show</a>
-                                    </li>
-                                    <li>
-                                        <a class="color_black" href="{{ path('user_edit', { 'id': user.id }) }}">edit</a>
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-
+            <div class="medium-offset-3 medium-6 columns admin_panel">
                 <ul>
-                    <li>
-                        <a class="color_black" href="{{ path('user_new') }}">Create a new user</a>
-                    </li>
+                    <li><a href="{{ path('user_index') }}">Просмотр пользователей</a></li>
+                    <li><a href="{{ path('event_admin_index') }}">Просмотр мероприятий</a></li>
+                    <li><a href="{{ path('ticket_index') }}">Просмотр билетов</a></li>
                 </ul>
+                <div class="admin_back"></div>
             </div>
-        </div>
-    <div class="row">
-        <h1>Events list</h1>
 
-        <table>
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>ImagePath</th>
-                <th>Date</th>
-                <th>$numberOfTickets</th>
-                <th>$remainingTickets</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for event in events %}
-                <tr>
-                    <td><a href="{{ path('event_show', { 'id': event.id }) }}">{{ event.id }}</a></td>
-                    <td>{{ event.name}}</td>
-                    <td>{{ event.description }}</td>
-                    <td>{{ event.image}}</td>
-                    <td>{{ event.date.format('Y-m-d H:i:s') }}</td>
-                    <td>{{ event.numberOfTickets}}</td>
-                    <td>{{ event.remainingTickets}}</td>
-                    <td>
-                        <ul>
-                            <li>
-                                <a class="color_black" href="{{ path('event_show', { 'id': event.id }) }}">show</a>
-                            </li>
-                            <li>
-                                <a class="color_black" href="{{ path('event_edit', { 'id': event.id }) }}">edit</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-
-        <ul>
-            <li>
-                <a class="color_black" href="{{ path('event_new') }}">Create a new event</a>
-            </li>
-        </ul>
-    </div>
-        <div class="row">
-            <h1>Tickets list</h1>
-
-            <table>
-                <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Event</th>
-                    <th>Person</th>
-                    <th>Number</th>
-                    <th>Sold</th>
-                    <th>Cost</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for ticket in tickets %}
-                    <tr>
-                        <td><a class="color_black" href="{{ path('ticket_show', { 'id': ticket.id }) }}">{{ ticket.id }}</a></td>
-                        <td><b>{{ ticket.event }}</b></td>
-                        <td>{{ ticket.user }}</td>
-                        <td>{{ ticket.number }}</td>
-                        <td>{% if ticket.sold %}Yes{% else %}No{% endif %}</td>
-                        <td>{{ ticket.cost }}</td>
-                        <td>
-                            <ul>
-                                <li>
-                                    <a class="color_black" href="{{ path('ticket_show', { 'id': ticket.id }) }}">show</a>
-                                </li>
-                                <li>
-                                    <a class="color_black" href="{{ path('ticket_edit', { 'id': ticket.id }) }}">edit</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-
-            <ul>
-                <li>
-                    <a class="color_black" href="{{ path('ticket_new') }}">Create a new ticket</a>
-                </li>
-            </ul>
         </div>
     </div>
 {% endblock %}

@@ -440,7 +440,7 @@ body {
 -------------------------------------------------- */
 /* Carousel base class */
 .carousel {
-  height: 500px;
+  height: 95vh;
   margin-bottom: 60px; }
 
 /* Since positioning the image, we need to help out the caption */
@@ -449,7 +449,7 @@ body {
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
-  height: 500px;
+  height: 95vh;
   background-color: #777; }
 
 .carousel-inner > .item > img {
@@ -457,7 +457,7 @@ body {
   top: 0;
   left: 0;
   min-width: 100%;
-  height: 500px; }
+  height: 95vh; }
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
@@ -565,7 +565,7 @@ body {
   .concerts_block h1 {
     text-align: center;
     margin: 0;
-    font-family: 'Baloo', cursive;;
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold; }
 
 .item_1 {
@@ -728,7 +728,7 @@ body {
 
 h1 {
   text-align: center;
-  font-family: 'Baloo', cursive;
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold; }
 
 .relative {
@@ -820,4 +820,39 @@ img{
 }
 .a_about:hover{
   color:#435c72;
+}
+li{
+  list-style-type: none;
+}
+li a:hover{
+  color:#000;
+}
+/*th, td{*/
+  /*border: 1px solid #000;*/
+/*}*/
+.admin_panel a{
+  color:#000;
+  font-size:25px;
+}
+.admin_panel{
+  position: relative;
+  color:#000;
+  height:400px;
+  padding: 50px 0 0 50px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+}
+.bwidth{
+  width:100px;
+}
+.button a:hover{
+  color:#fff;
+}
+.admin_back{
+  background-image: url('../img/admin.png');
+  background-size: cover;
+  position: absolute;
+  bottom:0;
+  right:0;
+  height:400px;
+  width:300px;
 }

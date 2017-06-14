@@ -14,23 +14,35 @@ user_reg:
     requirements:
            methods:  POST
 
-#movy_events_homepage:
-#    path:     /
-#    defaults: { _controller: "BloggerBlogBundle:Default:index"}
-#    requirements:
-#         methods: GET
+user_index:
+    path: /userlist
+    defaults: { _controller: "BloggerBlogBundle:User:index" }
+    requirements:
+         methods: GET
+
+event_admin_index:
+    path: /eventlist
+    defaults: { _controller: "BloggerBlogBundle:Event:admin" }
+    requirements:
+         methods: GET
+
+ticket_index:
+    path: /ticketlist
+    defaults: { _controller: "BloggerBlogBundle:Ticket:index" }
+    requirements:
+         methods: GET
 
 ticket_buy:
     path:  /event
     defaults: { _controller: "BloggerBlogBundle:Event:buy" }
     requirements:
-           methods:  POST
+         methods:  POST
 
 admin_home:
-    path:  /userpanel/
+    path:  /userpanel
     defaults: { _controller: "BloggerBlogBundle:Admin:index" }
     requirements:
-           methods:  GET
+         methods:  GET
 
 movy_events_login:
     path:     /login
