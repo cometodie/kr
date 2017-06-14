@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <div class="first-slide carusel_img1">
+                    <div class="overlay_carusel"></div>
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Будь в центре событий</h1><br>
+                            <p><a class="btn btn-lg btn-primary button_start" href="#" id="button_events" role="button">Начать</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="second-slide carusel_img2">
+                    <div class="overlay_carusel"></div>
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Смотри первым последнии новости</h1><br>
+                            <p><a class="btn btn-lg btn-primary" href="#" id="button_news" role="button">Начать</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="third-slide carusel_img3">
+                    <div class="overlay_carusel"></div>
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Получи массу эмоций</h1><br>
+                            <p><a class="btn btn-lg btn-primary" href="gallery" id="button_news" role="button">Начать</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.carousel -->
+    <div class="concerts_block">
+        <div class="container">
+
+            <div class="row" id="toEvent"><h1>Главные мероприятия</h1></div>
+            <div class="flex_wrap">
+                {% for event in events %}
+                    <div class="concert_item medium-3 large-3 columns">
+                        <div class="item_1">
+                            <div class="img_concert">
+                                <img src="{{ asset(['img/', event.image]|join) }}" class="large" />
+                            </div>
+                            <div class="item_text">
+                                <h5>{{ event.name }}</h5>
+                                <div class="overflow_text">
+                                    <p >{{ event.description }}</p>
+                                </div>
+                                <p><b>Начало мероприятия:</b> {{ event.date.format('Y-m-d H:i:s') }} </p>
+                            </div>
+                            <div class="" style="text-align:center;">
+                                <a href="{{ path('event_show', { 'id': event.id }) }}" class="alert button">Купить билет</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="news">
+        <div class="container">
+            <div class="row">
+                <h1 id="toNews">Актуальные новости</h1><br>
+                <h5><i>Читайте последние новости мероприятий города Витебска</i></h5>
+            </div>
+            <div class="row" style="display:flex; flex-flow:row wrap; align-items:center;">
+                {% for news in news %}
+                    <div class="medium-6 large-6 columns">
+                        <div class="flex_column">
+                            <div class="flex_row">
+                                <div class="date">
+                                    <h3>{{ news.date.format('jS F') }}
+                                    </h3>
+                                </div>
+                                <div class="vertical_line"></div>
+                                <div class="news_text">
+                                    <p class="news_title"><b>{{ news.title }}</b></p>
+                                    <p class="news_cont">{{ news.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/index.js') }}"></script>
+{% endblock %}

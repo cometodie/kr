@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container margin_top">
+    <h1>Список билетов</h1>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Event</th>
+            <th>Person</th>
+            <th>Number</th>
+            <th>Sold</th>
+            <th>Cost</th>
+            <th>Действия</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for ticket in tickets %}
+            <tr>
+                <td><a class="color_black" href="{{ path('ticket_show', { 'id': ticket.id }) }}">{{ ticket.id }}</a></td>
+                <td><b>{{ ticket.event }}</b></td>
+                <td>{{ ticket.user }}</td>
+                <td>{{ ticket.number }}</td>
+                <td>{% if ticket.sold %}Yes{% else %}No{% endif %}</td>
+                <td>{{ ticket.cost }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <button class="button bwidth"><a href="{{ path('ticket_show', { 'id': ticket.id }) }}">Показать</a></button>
+                        </li>
+                        <li>
+                            <button class="button bwidth"><a href="{{ path('ticket_edit', { 'id': ticket.id }) }}">Изменить</a><button>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <button class="button success"><a href="{{ path('ticket_new') }}">Создать билет</a></button>
+        </li>
+    </ul>
+</div>
+{% endblock %}

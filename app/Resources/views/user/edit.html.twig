@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container" style="margin-top:150px;">
+    <div class="margin_top"></div>
+    <h1>Изменение пользователя</h1>
+
+    <ul>
+        <li>
+            {{ form_start(edit_form) }}
+            {{ form_widget(edit_form) }}
+            <input type="submit" class="button success" value="Изменить" />
+            {{ form_end(edit_form) }}
+        </li>
+        <li>
+            <button class="button info"><a href="{{ path('user_index') }}">Назад в список</a></button>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" class="button alert" value="Удалить">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+</div>
+{% endblock %}

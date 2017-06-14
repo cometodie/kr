@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="main">
+        <div class="container margin_top">
+            <div class="row"><h3>{{ event.name }}</h3></div>
+            <div class="medium-6 columns text_left">
+                <img src="{{ asset(['img/', event.image ]|join) }}" class="large" />
+            </div>
+            <div class="medium-6 columns left_block">
+                <form method="post" action="{{ path('ticket_buy') }}">
+                    <h3>Покупка билетов</h3>
+                    <div class="ticket_area">
+                        <p>Дата мероприятия: {{ event.date.format('Y-m-d H:i:s') }}</p>
+                        <p>Всего билетов: {{ event.numberOfTickets }}</p>
+                        <p>Осталось билетов: {{ event.remainingTickets }}</p>
+                        <div class="flex_row">
+                            <div>
+                                <p>Введите количество билетов:</p>
+                            </div>
+                            <div class="spinbox">
+                                <input type="hidden" class="alert button" name="event_id" value="{{ event.id }}"/>
+                                <input TYPE="number" class="form-control" name="_count" MIN="0" MAX="10" STEP="1" VALUE="6">
+                            </div>
+                        </div>
+                        <p>Стоимость: <b>10 USD</b></p>
+                        <div class="" style="text-align:center;">
+                            <input type="submit" class="alert button" name="buy" value="Купить билет"/>
+                            {#<a href="{{ path('ticket_buy', { 'id': event.id }, { 'event_id': event.id })  }}" class="alert button">Купить билет</a>#}
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="medium-12 columns">
+                <div class="text">
+                    <p class="text_description">{{ event.description }}</p>
+                </div>
+            </div>
+            {% if is_granted('ROLE_ADMIN') %}
+                <div class="medium-8 medium-pull-2 columns for_admin">
+                    <h2 style="text-align: center;">Панель для администратора</h2>
+                    <div class="for_admin_panel">
+                        <button class="button info"><a href="{{ path('event_index') }}">Назад к мероприятиям</a></button>
+                        <button class="button"><a href="{{ path('event_edit', { 'id': event.id }) }}">Изменить</a></button>
+                        {{ form_start(delete_form) }}
+                        <input type="submit" class="button alert" value="Удалить">
+                        {{ form_end(delete_form) }}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+    </div>
+{% endblock %}

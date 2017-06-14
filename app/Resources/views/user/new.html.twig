@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container" style="margin-top:180px;">
+    <div class="margin_top"></div>
+    <h1>Создание пользователя</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" class="button success" value="Создать" />
+    {{ form_end(form) }}
+
+    <button class="button info"><a href="{{ path('user_index') }}">Назад в список</a></button>
+
+</div>
+{% endblock %}

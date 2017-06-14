@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container" style="margin-top:150px;">
+    <h1>Пользователь</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ user.password }}</td>
+            </tr>
+            <tr>
+                <th>Salt</th>
+                <td>{{ user.salt }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+             <button class="button info"><a href="{{ path('admin_home') }}">Назад в список</a></button>
+        </li>
+        <li>
+            <button class="button"><a href="{{ path('user_edit', { 'id': user.id }) }}">Изменить</a></button>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" class="button alert" value="Удалить">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+    </div>
+{% endblock %}

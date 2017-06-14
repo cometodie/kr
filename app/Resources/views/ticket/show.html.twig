@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container margin_top">
+        <div class="margin_top"></div>
+    <h1>Ticket</h1>
+
+    <table class="table table-bordered">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ ticket.id }}</td>
+        </tr>
+        <tr>
+            <th>Event</th>
+            <td>{{ ticket.event }}</td>
+        </tr>
+        <tr>
+            <th>Person</th>
+            <td>{{ ticket.user }}</td>
+        </tr>
+        <tr>
+            <th>Number</th>
+            <td>{{ ticket.number }}</td>
+        </tr>
+        <tr>
+            <th>Sold</th>
+            <td>{% if ticket.sold %}Yes{% else %}No{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Cost</th>
+            <td>{{ ticket.cost }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <button class="button info"><a href="{{ path('ticket_index') }}">Back to the list</a></button>
+        </li>
+        <li>
+            <button class="button"><a href="{{ path('ticket_edit', { 'id': ticket.id }) }}">Edit</a></button>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+            <input type="submit" class="button alert" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+    </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="main">
+    <div class="container margin_top">
+        {% for picture in pictures %}
+            <div class="large-6 medium-12 small-12 columns gallery_item">
+                <img src="{{ asset(['img/', picture.path ]|join) }}" class="large" />
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

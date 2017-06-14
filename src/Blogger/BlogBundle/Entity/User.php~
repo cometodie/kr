@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Andrey
- * Date: 02.05.2017
- * Time: 14:46
- */
 
 namespace Blogger\BlogBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -64,14 +58,9 @@ class User implements UserInterface{
      */
     protected $userRoles;
 
-    /**
-     * @ORM\OneToMany(targetEntity="bid", mappedBy="user")
-     */
-    protected $bids;
 
     public function __construct(){
         $this->userRoles = new ArrayCollection();
-        $this->bids = new ArrayCollection();
     }
 
     /**
@@ -242,47 +231,13 @@ class User implements UserInterface{
     }
 
     /**
-     * Add bit
-     *
-     * @param \Blogger\BlogBundle\Entity\bit $bit
-     *
-     * @return User
-     */
-    public function addBit(\Blogger\BlogBundle\Entity\bit $bit)
-    {
-        $this->bits[] = $bit;
-
-        return $this;
-    }
-
-    /**
-     * Remove bit
-     *
-     * @param \Blogger\BlogBundle\Entity\bit $bit
-     */
-    public function removeBit(\Blogger\BlogBundle\Entity\bit $bit)
-    {
-        $this->bits->removeElement($bit);
-    }
-
-    /**
-     * Get bits
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getBits()
-    {
-        return $this->bits;
-    }
-
-    /**
      * Add bid
      *
-     * @param \Blogger\BlogBundle\Entity\bit $bid
+     * @param \Blogger\BlogBundle\Entity\bid $bid
      *
      * @return User
      */
-    public function addBid(\Blogger\BlogBundle\Entity\bit $bid)
+    public function addBid(\Blogger\BlogBundle\Entity\bid $bid)
     {
         $this->bids[] = $bid;
 
@@ -292,9 +247,9 @@ class User implements UserInterface{
     /**
      * Remove bid
      *
-     * @param \Blogger\BlogBundle\Entity\bit $bid
+     * @param \Blogger\BlogBundle\Entity\bid $bid
      */
-    public function removeBid(\Blogger\BlogBundle\Entity\bit $bid)
+    public function removeBid(\Blogger\BlogBundle\Entity\bid $bid)
     {
         $this->bids->removeElement($bid);
     }
@@ -308,4 +263,8 @@ class User implements UserInterface{
     {
         return $this->bids;
     }
+
+
+
+
 }
