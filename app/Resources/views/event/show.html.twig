@@ -25,8 +25,11 @@
                         </div>
                         <p>Стоимость: <b>10 USD</b></p>
                         <div class="" style="text-align:center;">
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                             <input type="submit" class="alert button" name="buy" value="Купить билет"/>
-                            {#<a href="{{ path('ticket_buy', { 'id': event.id }, { 'event_id': event.id })  }}" class="alert button">Купить билет</a>#}
+                            {% else %}
+                                <p>Для покупки билета, вам необходимо авторизироваться.</p>
+                            {% endif %}
                         </div>
                     </div>
                 </form>
